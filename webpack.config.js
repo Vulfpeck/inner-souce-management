@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CompressionPlugin = require('compression-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const webpack = require("webpack");
 
@@ -46,20 +46,22 @@ module.exports = {
         new webpack.DefinePlugin({
             "process.env.CLIENT_ID": JSON.stringify(process.env.CLIENT_ID),
             "process.env.API_URL": JSON.stringify(process.env.API_URL),
-            "process.env.GITHUB_DOMAIN": JSON.stringify(process.env.GITHUB_DOMAIN),
-            "process.env.GRAPH_API_URL": JSON.stringify(process.env.GRAPH_API_URL),
+            "process.env.GITHUB_DOMAIN": JSON.stringify(
+                process.env.GITHUB_DOMAIN),
+            "process.env.GRAPH_API_URL": JSON.stringify(
+                process.env.GRAPH_API_URL),
         }),
         new CompressionPlugin({
-                algorithm: 'gzip',
-                test: /\.js$|\.css$|\.html$/,
-                threshold: 10240,
-                minRatio: 0.7
-            }),
-                new BrotliPlugin({
-                test: /\.js$|\.css$|\.html$/,
-                threshold: 10240,
-                minRatio: 0.7
-            })
+            algorithm: "gzip",
+            test: /\.js$|\.css$|\.html$/,
+            threshold: 10240,
+            minRatio: 0.7,
+        }),
+        new BrotliPlugin({
+            test: /\.js$|\.css$|\.html$/,
+            threshold: 10240,
+            minRatio: 0.7,
+        }),
     ],
     devServer: {
         port: 80,
