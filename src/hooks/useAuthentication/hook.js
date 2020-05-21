@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import { useLazyQuery } from "@apollo/client";
 import { GET_USER_PROFILE } from "../../queries";
@@ -9,6 +9,8 @@ const API_URL = process.env.API_URL;
 const githubAuthUrl = `https://${GITHUB_DOMAIN}/login/oauth/authorize?client_id=${CLIENT_ID}&scope=read:user user:email`;
 
 console.log(API_URL);
+console.log(GITHUB_DOMAIN);
+console.log(CLIENT_ID);
 export function useAuthentication() {
     const [authenticated, setAuthenticated] = useState(false);
     const [user, setUser] = useState({});
